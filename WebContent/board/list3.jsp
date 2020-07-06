@@ -24,14 +24,14 @@
 	PreparedStatement ps = conn.prepareStatement(sql);
 	if(searchs!=null)
 		for(int i=0;i<searchs.length;i++){
-			ps.setString(i+1,searchStr);
+			ps.setString((i+1),searchStr);
 		}
 	ResultSet rs = ps.executeQuery();
 %>
 <form>
-<lable for="title">제목</lable><input type="checkbox" id="title" name="search">
-<lable for="content">내용</lable><input type="checkbox" id="content" name="search">
-<lable for="creusr">날짜</lable><input type="checkbox" id="content" name="search">
+<label for="title">제목</label><input type="checkbox" id="title" name="search" value="title">
+<label for="content">내용</label><input type="checkbox" id="content" name="search" value="content">
+<label for="creusr">유저명</label><input type="checkbox" id="content" name="search" value="creusr">
 <input type="text" name="searchStr">
 <button>검색</button>
 </form>
