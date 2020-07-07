@@ -23,6 +23,10 @@ public class BoardService {
 			while(rs.next()) {
 				Map<String,Object> map = new HashMap<>();
 				map.put("num", rs.getInt("num"));
+				map.put("title", rs.getString("title"));
+				map.put("content", rs.getString("content"));
+				map.put("credat", rs.getString("credat"));
+				map.put("creusr", rs.getString("creusr"));
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
