@@ -3,7 +3,7 @@ package common;
 import java.sql.*;
 
 public class Connector {
-	private static final String URL="jdbc:oracle:thin:@localhost/xe";
+	private static final String URL="jdbc:oracle:thin:@localhost:1521:xe";
 	private static final String USER="c##test";
 	private static final String PASSWORD="test";
 	private static final String driver_name="oracle.jdbc.driver.OracleDriver";
