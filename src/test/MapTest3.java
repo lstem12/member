@@ -3,23 +3,31 @@ package test;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Random;
 
 public class MapTest3 {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		Map<Float,String> map = new HashMap<>();
-		
-		map.put(1.0f, "플룻1");
-		map.put(2.0f, "플룻2");
-		map.put(3.0f, "플룻3");
-		
-		Iterator<Float> it = map.keySet().iterator();
-		while(it.hasNext()) {
-			Float key = it.next();
-			System.out.println(key+": "+map.get(key));
+		Map<Integer, Integer> map = new HashMap<>();
+		Random r = new Random();
+
+		for (int i = 0; i <= 5; i++) {
+			map.put(i, r.nextInt(45) + 1);
+			for (int j = i-1; j >= 0; j--) {
+				if (map.get(j) == map.get(i)) {
+					i--;
+				}
+			}
+		}
+
+		Iterator<Integer> it = map.keySet().iterator();
+		while (it.hasNext()) {
+			Integer key = it.next();
+			if (key == 5) {
+				System.out.print(map.get(key));
+			} else {
+				System.out.print(map.get(key) + ", ");
+			}
 		}
 
 	}
