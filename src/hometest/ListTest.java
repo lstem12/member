@@ -36,6 +36,7 @@ class Student{
 public class ListTest {
 	public static void main(String[] args) {
 		List<Student> stList = new ArrayList<>();
+		int[] count = new int[5];
 		Random ra = new Random();
 		
 		for(int i=1;i<=5;i++) {
@@ -48,11 +49,6 @@ public class ListTest {
 		int max=0;
 		int idx=0;
 		
-		int count1 = 0;
-		int count2 = 0;
-		int count3 = 0;
-		int count4 = 0;
-		int count5 = 0;
 		for(int i=0;i<stList.size();i++) {
 			Student std = stList.get(i);
 			if(std.getScore()>max) {
@@ -60,20 +56,20 @@ public class ListTest {
 				idx = i;
 			}
 			if(std.getNum()==1) {
-				count1 +=1;
+				count[0] +=1;
 			}else if(std.getNum()==2) {
-				count2 +=1;
+				count[1] +=1;
 			}else if(std.getNum()==3) {
-				count3 +=1;
+				count[2] +=1;
 			}else if(std.getNum()==4) {
-				count4 +=1;
+				count[3] +=1;
 			}else if(std.getNum()==5) {
-				count5 +=1;
+				count[4] +=1;
 			}
 			System.out.println(std);
 		}
 		System.out.println();
 		System.out.println("최고점수:"+max+" 최고점수 학생정보 :"+ stList.get(idx));
-		System.out.println("1번 :"+count1+" 2번 :"+count2+" 3번 :"+count3+" 4번 :"+count4+" 5번 :"+count5);
+		System.out.println("1번 :"+count[0]+" 2번 :"+count[1]+" 3번 :"+count[2]+" 4번 :"+count[3]+" 5번 :"+count[4]);
 	}
 }
