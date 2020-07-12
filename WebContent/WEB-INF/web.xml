@@ -9,4 +9,13 @@
 	<servlet-name>BoardServlet</servlet-name>
 	<url-pattern>/board.do</url-pattern>
 </servlet-mapping>
+
+<servlet>
+	<servlet-name>MemberServlet</servlet-name>
+	<servlet-class>servlet.MemberServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>MemberServlet</servlet-name>
+	<url-pattern>/member.do</url-pattern>
+</servlet-mapping>
 </web-app>
