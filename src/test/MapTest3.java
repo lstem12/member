@@ -23,12 +23,11 @@ public class MapTest3 {
 		Iterator<Integer> it = map.keySet().iterator();
 		while (it.hasNext()) {
 			Integer key = it.next();
-			if (key == 5) {
+			if (key == map.size()-1) {
 				System.out.print(map.get(key));
 			} else {
 				System.out.print(map.get(key) + ", ");
 			}
 		}
-
 	}
 }
