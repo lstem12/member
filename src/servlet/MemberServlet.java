@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -10,10 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.MemberService;
+
 
 public class MemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private MemberService memberService = new MemberService();
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -31,8 +35,15 @@ public class MemberServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		Map<String,String> map = mapToMap(request.getParameterMap());
-		System.out.println(map);
-		doGet(request, response);
+		Map<String,Object> rMap = memberService.insertMember(map);
+		doProcess(rMap, response);
+	}
+	private void doProcess(Map<String,Object> rMap, HttpServletResponse response) throws IOException {
+		
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter pw = response.getWriter();
+		pw.print("입력갯수 :" + rMap.get("result"));
+		pw.print("메세지 :" + rMap.get("msg"));
 	}
 
 }
