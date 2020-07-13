@@ -29,6 +29,5 @@ public class MapTest3 {
 				System.out.print(map.get(key) + ", ");
 			}
 		}
-
 	}
 }
