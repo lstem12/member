@@ -2,7 +2,7 @@
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%
 // <%@ <-- 디렉티브(Directive) - 이 페이지에 대한 설명서
-// <% <-- 스크립트릿(Scriptlet)
+// <% <-- 스크립트릿(Scriptlet) - 실행부
 // <%= <-- 익스프레션(Expression)(표현식)
 // <%! <-- 디클레이션(Declaration)(선언부)
 %>
