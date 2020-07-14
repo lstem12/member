@@ -14,7 +14,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-1.jsp
-<%=str%>
+1.jsp<br>
+<%
+RequestDispatcher rd = request.getRequestDispatcher("/for/2.jsp");
+rd.forward(request, response);
+%>
 </body>
 </html>
