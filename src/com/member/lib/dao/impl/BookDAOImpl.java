@@ -62,7 +62,7 @@ public class BookDAOImpl implements BookDAO {
 			ps.setString(1, book.get("b_title").toString());
 			ps.setString(2, book.get("b_author").toString());
 			ps.setString(3, book.get("b_desc").toString());
-			ps.setInt(4, (int)book.get("b_num"));
+			ps.setInt(4, (int) book.get("b_num"));
 			result = ps.executeUpdate();
 			con.commit();
 		} catch (Exception e) {
@@ -94,7 +94,7 @@ public class BookDAOImpl implements BookDAO {
 			ps.setInt(1, bNum);
 			result = ps.executeUpdate();
 			con.commit();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -122,7 +122,7 @@ public class BookDAOImpl implements BookDAO {
 			String sql = "select b_num, b_title, b_author, b_credat, b_desc from book";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				Map<String, Object> map = new HashMap<>();
 				map.put("b_num", rs.getInt("b_num"));
 				map.put("b_title", rs.getString("b_title"));
@@ -131,7 +131,7 @@ public class BookDAOImpl implements BookDAO {
 				map.put("b_desc", rs.getString("b_desc"));
 				bookList.add(map);
 			}
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -153,7 +153,7 @@ public class BookDAOImpl implements BookDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		
+
 		try {
 			con = Connector.open();
 			String sql = "select b_num, b_title, b_author, b_credat, b_desc from book where b_num=?";
@@ -169,7 +169,7 @@ public class BookDAOImpl implements BookDAO {
 				map.put("b_desc", rs.getString("b_desc"));
 				return map;
 			}
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -188,19 +188,21 @@ public class BookDAOImpl implements BookDAO {
 
 	public static void main(String[] args) {
 		BookDAO bdao = new BookDAOImpl();
-		Map<String,Object> map = new HashMap<>();
+		Map<String, Object> map = new HashMap<>();
 		map.put("b_title", "자바의정석");
 		map.put("b_author", "남궁성");
 		map.put("b_desc", "자바의정석입니다.");
-		//bdao.insertBook(map);
-		//System.out.println(bdao.selectBook(1));
-		//System.out.println("b_num이 "+bdao.deleteBook(22)+"인 데이터 삭제");
-		//List<Map<String,Object>> bookList = bdao.selectBookList(map);
-		//System.out.println(bookList);
-		//int result = bdao.deleteBook(21);
-		//System.out.println("삭제 갯수 : "+ result);
-		map.put("b_num", 2);
-		int result = bdao.updateBook(map);
-		System.out.println("수정 갯수: " +result);
+		bdao.insertBook(map);
+		// System.out.println(bdao.selectBook(1));
+
+		// List<Map<String,Object>> bookList = bdao.selectBookList(map);
+		// System.out.println(bookList);
+
+		// int result = bdao.deleteBook(21);
+		// System.out.println("삭제 갯수 : "+ result);
+
+		// map.put("b_num", 2);
+		// int result = bdao.updateBook(map);
+		// System.out.println("수정 갯수: " +result);
 	}
 }
