@@ -43,7 +43,7 @@ public class MemberDAOImpl implements MemberDAO {
 				e.printStackTrace();
 			}
 		}
-		return 0;
+		return result;
 	}
 
 	@Override
@@ -94,7 +94,7 @@ public class MemberDAOImpl implements MemberDAO {
 			ps.setInt(1, mNum);
 			result = ps.executeUpdate();
 			con.commit();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -188,12 +188,12 @@ public class MemberDAOImpl implements MemberDAO {
 	public static void main(String[] args) {
 		MemberDAO mdao = new MemberDAOImpl();
 		Map<String,Object> map = new HashMap<>();
-		map.put("m_name", "다자바1");
-		map.put("m_id", "qq11221");
-		map.put("m_pwd", "a1231");
+		map.put("m_name", "이상213");
+		map.put("m_id", "qdaa222");
+		map.put("m_pwd", "123433");
 		//mdao.insertMember(map);
 		
-		//map.put("m_num", 3);
+		//map.put("m_num", 1);
 		//int result = mdao.updateMember(map);
 		//System.out.println("수정 갯수: " +result);
 		
@@ -203,7 +203,7 @@ public class MemberDAOImpl implements MemberDAO {
 		//List<Map<String,Object>> memberList = mdao.selectMemberList(map);
 		//System.out.println(memberList);
 		
-		System.out.println(mdao.selectMember(2));
+		System.out.println(mdao.selectMember(21));
 	}
 
 }

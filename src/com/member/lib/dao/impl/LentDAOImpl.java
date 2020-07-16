@@ -11,7 +11,6 @@ import java.util.Map;
 
 import com.member.lib.common.Connector;
 import com.member.lib.dao.LentDAO;
-import com.member.lib.dao.MemberDAO;
 
 public class LentDAOImpl implements LentDAO {
 
@@ -43,7 +42,7 @@ public class LentDAOImpl implements LentDAO {
 				e.printStackTrace();
 			}
 		}
-		return 0;
+		return result;
 	}
 
 	@Override
@@ -187,9 +186,9 @@ public class LentDAOImpl implements LentDAO {
 	public static void main(String[] args) {
 		LentDAO ldao = new LentDAOImpl();
 		Map<String,Object> map = new HashMap<>();
-		//map.put("m_num", 2);
-		//map.put("b_num", 3);
-		//ldao.insertLent(map);
+		map.put("m_num", 21);
+		map.put("b_num", 26);
+		ldao.insertLent(map);
 		
 		/*map.put("l_num", 1);
 		map.put("m_num", 1);
@@ -203,7 +202,7 @@ public class LentDAOImpl implements LentDAO {
 		//List<Map<String,Object>> lentList = ldao.selectLentList(map);
 		//System.out.println(lentList);
 		
-		System.out.println(ldao.selectLent(2));
+		System.out.println(ldao.selectLent(41));
 		
 	}
 

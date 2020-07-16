@@ -43,7 +43,7 @@ public class BookDAOImpl implements BookDAO {
 				e.printStackTrace();
 			}
 		}
-		return 0;
+		return result;
 	}
 
 	@Override
