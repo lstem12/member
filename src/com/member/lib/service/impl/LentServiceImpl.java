@@ -73,7 +73,10 @@ public class LentServiceImpl implements LentService {
 		
 		//System.out.println(lentService.deleteLent(45));
 		
-		
+		map.put("m_num", 1);
+		map.put("b_num", 1);
+		map.put("l_num", 1);
+		System.out.println(lentService.updateLent(map));
 		
 	}
 
